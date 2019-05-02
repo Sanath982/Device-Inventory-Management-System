@@ -1,0 +1,26 @@
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="form_bg">
+                <form>
+                     <h2 class="text-center">Login Page</h2>
+                    <br/>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="userid" #userId placeholder="User id">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="pwd" #password placeholder="Password">
+                    </div>
+                    <br/>
+                    <div class="align-center">
+                        <button  type="submit" class="btn btn-primary" id="login" (click)="check(userId.value,password.value)">Login</button>
+                    </div>
+                    <div class="text-danger">
+                        {{errorMessage}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

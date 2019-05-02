@@ -1,0 +1,91 @@
+<br><br><br><br><br>
+<div class="bgi card"><br>
+  <div class="text-right mr-5">
+    <button class="btn btn-primary" [routerLink]="['/home']">logout</button>
+  </div>
+<div class="ml-4 text-white">
+  <h4>Welcome Admin..!!</h4>
+</div>
+<div class="text-center text-white">
+  <h3>Select task that you want to do:</h3>
+  <div>
+      <button class="btn btn-dark col-md-4" (click)="disabling(1)">Create new system</button><br><br>
+          <div *ngIf="create">
+              <div class="form-group col-md-4 offset-4">
+                  <input type="number" class="form-control" id="systemId" min="0" #id3 placeholder="system id">
+              </div>
+              <div class="form-group col-md-4 offset-4">
+                  <input type="text" class="form-control" id="systemName" #name1 placeholder="system Name">
+              </div>
+              <div>
+                <button class="btn btn-primary" (click)="created(id3.value,name1.value)">submit</button>
+              </div>
+          </div>
+
+      <br> <button class="btn btn-dark col-md-4" (click)="disabling(2)">deallocate system</button><br><br>
+
+      <div *ngIf="deallocate">
+          <div class="form-group col-md-4 offset-4">
+              <input type="number" class="form-control" id="systemId"  min="0" #id1 placeholder="system id">
+          </div>
+          <div>
+            <button class="btn btn-primary" (click)="deAllocate(id1.value)">submit</button>
+          </div>
+      </div>
+
+       <br> <button class="btn btn-dark col-md-4" (click)="disabling(3)">update system details</button><br><br>
+
+       <div *ngIf="allocate">
+          <div class="form-group col-md-4 offset-4">
+              <input type="number" class="form-control" id="systemId"  min="0" #id2 placeholder="system id">
+          </div>
+          <div class="form-group col-md-4 offset-4">
+              <input type="text" class="form-control" id="userName" #user1 placeholder="user Name">
+          </div>
+          <div>
+            <button class="btn btn-primary" (click)="Update(id2.value,user1.value)">submit</button>
+          </div>
+      </div>
+
+      <br> <button class="btn btn-dark col-md-4" (click)="disabling(4)">delete system</button><br><br>
+
+      <div *ngIf="delete">
+          <div class="form-group col-md-4 offset-4">
+              <input type="number" class="form-control" id="systemId"  min="0" #id4 placeholder="system id">
+          </div>
+          <div>
+            <button class="btn btn-primary" (click)="Delete(id4.value)">submit</button>
+          </div>
+      </div>
+
+      <br> <button class="btn btn-dark col-md-4" (click)="disabling(5)" [routerLink]="['/d-display']">display all systems</button><br><br>
+
+      <div *ngIf="display">
+        <table class="table table-bordered text-white col-md-6 offset-3 bg-dark">
+          <thead>
+            <th>System Id</th>
+            <th>System Name</th>
+            <th>User Name</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let device of success" class="text-white">
+              <td>{{device.systemId}}</td>
+              <td>{{device.systemName}}</td>
+              <td>{{device.user}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+  </div><br>
+  <div class="card bg-dark col-md-4 offset-4" *ngIf="(successMessage!=null || errorMessage!=null)">
+      <div class="text-success" *ngIf="successMessage!=null">{{successMessage}}
+      </div>
+      <div class="text-danger" *ngIf="errorMessage!=null">{{errorMessage}}</div>
+    </div>
+  <br><br>
+</div>
+<div class="text-center text-white">
+  powered by xyz.ltd
+</div><br>
+</div>

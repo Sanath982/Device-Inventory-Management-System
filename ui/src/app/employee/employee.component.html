@@ -1,0 +1,48 @@
+<br><br><br><br><br>
+<div class="bgi card"><br><br><br><br>
+  <div class="text-center text-white">
+      <h4>Select field which you want to use for searching:</h4><br><br>
+      <div class="card bg-dark col-md-3 offset-4">
+          <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="systemid" name="system" (click)="setValue(1)">
+              <label class="custom-control-label" for="systemid">System Id</label>
+            </div>
+            <br>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="systemname" name="system" (click)="setValue(2)">
+              <label class="custom-control-label" for="systemname">System Name</label>
+            </div>
+            <br>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="username" name="system" (click)="setValue(3)">
+              <label class="custom-control-label" for="username">User Name</label>
+            </div>
+      </div>
+        <br>
+  </div>
+  <div class="offset-4 col-md-4">
+      <div class="form-group" *ngIf="id">
+          <input type="text" class="form-control" id="systemid" #id placeholder="enter system id"><br>
+          <button class="btn btn-primary offset-5" (click)="get_data(id.value,1)">Search Data</button>
+      </div>
+      <div class="form-group" *ngIf="name">
+          <input type="text" class="form-control" id="systemname" #name placeholder="enter system name"><br>
+          <button class="btn btn-primary offset-5" (click)="get_data(name.value,2)">Search Data</button>
+      </div>
+      <div class="form-group" *ngIf="user">
+          <input type="text" class="form-control" id="username" #user placeholder="enter user name"><br>
+          <button class="btn btn-primary offset-5" (click)="get_data(user.value,3)">Search Data</button>
+      </div>
+  </div>
+  <div class="card bg-dark col-md-4 offset-4" *ngIf="successMessage!=null || errorMessage!=null">
+    <div class="text-success" *ngIf="successMessage!=null">Systemid={{successMessage.systemId}}
+      <br>System name={{successMessage.systemName}}
+      <br>User name={{successMessage.user}}
+    </div>
+    <div class="text-danger" *ngIf="errorMessage!=null">{{errorMessage}}</div>
+  </div>
+  <br><br><br><br><br><br><br><br>
+  <div class="text-center text-white">
+    powered by xyz.ltd
+  </div>
+</div>
